@@ -96,12 +96,11 @@ main {
   font-size: 1.05rem;
 }
 
-.logo-mark {
+header .logo img.logo-mark {
   width: 28px;
   height: 28px;
-  display: inline-block;
-  object-fit: contain;
 }
+
 
 .logo-text {
   background: linear-gradient(120deg, #e5e7eb, #c4b5fd);
