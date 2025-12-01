@@ -97,7 +97,10 @@ main {
 }
 
 .logo-mark {
-  font-size: 1.4rem;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  object-fit: contain;
 }
 
 .logo-text {
