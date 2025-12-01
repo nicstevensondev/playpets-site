@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Getting Started – PlayPets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">🐾</span>
+        <span class="logo-text">PlayPets</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="getting-started.html" class="nav-link nav-link-active">Getting Started</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+      </nav>
+
+      <a
+        class="btn btn-primary"
+        href="https://chromewebstore.google.com/detail/your-extension-id-here"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Add Extension
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Getting Started</h1>
+        <p class="page-subtitle">
+          A quick guide to installing PlayPets and making your browser feel a little more alive.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <h2>1. Install PlayPets</h2>
+        <p>
+          Click the <strong>Add Extension</strong> button in the top-right or visit the
+          Chrome Web Store listing directly. Follow the usual Chrome installation flow to add
+          PlayPets to your browser.
+        </p>
+
+        <h2>2. Pin the extension</h2>
+        <p>
+          After installing, click the puzzle icon in your Chrome toolbar.
+          Find <strong>PlayPets</strong> in the list and click the pin icon so it’s always visible.
+        </p>
+
+        <h2>3. Show or hide your pet</h2>
+        <p>
+          Click the PlayPets icon in your toolbar to toggle your pet on or off.
+          Your pet will appear anchored near the corner of the page and stay out of the way.
+        </p>
+
+        <h2>4. Basic controls</h2>
+        <ul class="bullet-list">
+          <li><strong>Toggle visibility:</strong> Show or hide the pet at any time.</li>
+          <li><strong>Interaction modes:</strong> Choose playful mode, quiet/study mode, or turn interactions off.</li>
+          <li><strong>Size & position:</strong> Adjust how big the pet appears and drag it to a comfortable spot.</li>
+        </ul>
+
+        <h2>5. Tips</h2>
+        <ul class="bullet-list">
+          <li>
+            The pet is designed to be subtle. If a site feels crowded, you can quickly hide it
+            or reduce its size.
+          </li>
+          <li>
+            PlayPets doesn’t modify the content of the websites you visit — it just renders on top.
+          </li>
+          <li>
+            For details on what data is (and is not) collected, see the
+            <a href="privacy.html">Privacy Policy</a>.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-brand">PlayPets</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <p class="footer-meta">
+        © <span id="year"></span> PlayPets. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
