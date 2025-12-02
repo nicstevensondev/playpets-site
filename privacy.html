@@ -4,121 +4,106 @@
   <meta charset="UTF-8" />
   <title>Privacy Policy – PlayPets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Learn how PlayPets handles data and privacy inside your browser."
+  />
+  <link rel="icon" type="image/png" href="assets/cat_icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-privacy">
   <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">🐾</span>
-        <span class="logo-text">PlayPets</span>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark" />
+        <div class="brand-text">
+          <span class="brand-name">PlayPets</span>
+          <span class="brand-tagline">Browser companions, made cozy.</span>
+        </div>
       </a>
 
-      <nav class="nav" id="nav">
+      <nav class="main-nav">
         <a href="index.html" class="nav-link">Home</a>
         <a href="getting-started.html" class="nav-link">Getting Started</a>
         <a href="privacy.html" class="nav-link nav-link-active">Privacy</a>
       </nav>
 
-      <a
-        class="btn btn-primary"
-        href="https://chromewebstore.google.com/detail/your-extension-id-here"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Add Extension
-      </a>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-cta">
+        <a
+          class="btn btn-primary"
+          href="https://chromewebstore.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Add Extension
+        </a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="page-header">
-      <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="page-subtitle">
-          A human-friendly overview of how PlayPets handles your data.
-        </p>
-      </div>
-    </section>
-
+  <main class="page">
     <section class="section">
-      <div class="container narrow privacy-copy">
-        <p><em>Last updated: [Month Day, Year]</em></p>
-
-        <h2>1. Overview</h2>
-        <p>
-          PlayPets is designed to be a fun, lightweight browser companion. The extension aims
-          to respect your privacy and minimize data collection wherever possible.
+      <div class="section-inner narrow">
+        <h1>Privacy Policy</h1>
+        <p class="section-lead">
+          This is a placeholder privacy policy structure. You can replace this content
+          with your actual policy text later.
         </p>
 
-        <h2>2. Data we do not collect</h2>
-        <p>PlayPets does <strong>not</strong>:</p>
-        <ul class="bullet-list">
-          <li>Read or store the content of web pages you visit.</li>
-          <li>Track your browsing history across sites.</li>
-          <li>Sell or share your personal data with third parties.</li>
-        </ul>
+        <div class="card">
+          <h2>1. Overview</h2>
+          <p>
+            PlayPets is designed to run locally in your browser and provide a
+            playful companion without collecting unnecessary personal data.
+          </p>
 
-        <h2>3. Data used by the extension</h2>
-        <p>
-          The extension may store limited settings locally in your browser, such as:
-        </p>
-        <ul class="bullet-list">
-          <li>Whether the pet is visible or hidden.</li>
-          <li>Basic customization options (e.g., size, behavior mode).</li>
-          <li>Simple interaction state (e.g., hunger/play level), stored locally.</li>
-        </ul>
-        <p>
-          These values are stored using the browser’s extension storage and are not transmitted
-          to a remote server by PlayPets itself.
-        </p>
+          <h2>2. Data the extension accesses</h2>
+          <p>
+            Here you can describe any permissions the extension uses and why
+            they are required. If no personal data is stored or transmitted,
+            you can clearly state that here.
+          </p>
 
-        <h2>4. Third-party services</h2>
-        <p>
-          If you later integrate any analytics or error reporting (e.g., for the website or
-          extension), describe those services and what they collect here.
-        </p>
+          <h2>3. Storage & preferences</h2>
+          <p>
+            You may store user preferences such as cat position, size, or
+            behavior settings in the browser’s local storage. You can describe that
+            this data stays on the user’s device.
+          </p>
 
-        <h2>5. Permissions</h2>
-        <p>
-          PlayPets requests only the permissions it needs to render the pet overlay and manage
-          its settings. Before installing, you can review the requested permissions in the
-          Chrome Web Store.
-        </p>
+          <h2>4. Third-party services</h2>
+          <p>
+            If you do not use any analytics or third-party tracking,
+            you can state that explicitly. Otherwise, list each service and its purpose.
+          </p>
 
-        <h2>6. Contact</h2>
-        <p>
-          If you have questions about this policy or how PlayPets works, you can reach the
-          developer at:
-        </p>
-        <p><em>[Your contact email or form link here]</em></p>
-
-        <p>
-          This privacy policy may be updated over time. Any significant changes will be reflected
-          here, along with a new “Last updated” date.
-        </p>
+          <h2>5. Contact</h2>
+          <p>
+            Add a contact email or form where users can reach you with
+            privacy-related questions or concerns.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-container">
-      <p class="footer-brand">PlayPets</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="getting-started.html">Getting Started</a>
-        <a href="privacy.html">Privacy</a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark logo-mark-sm" />
+        <span class="footer-text">PlayPets</span>
       </div>
-      <p class="footer-meta">
-        © <span id="year"></span> PlayPets. All rights reserved.
-      </p>
+      <div class="footer-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year"></span> PlayPets</span>
+      </div>
     </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

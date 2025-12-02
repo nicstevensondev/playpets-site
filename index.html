@@ -2,195 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PlayPets – Your Friendly Browser Companion</title>
+  <title>PlayPets – Your Cozy Companion Chrome Extension</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="PlayPets brings a cozy animated companion to your browser — a playful cat that keeps you company while you work."
+  />
+  <link rel="icon" type="image/png" href="assets/cat_icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-home">
   <header class="site-header">
-    <div class="container nav-container">
-      <a href="/" class="logo">
-        <img
-          class="logo-mark"
-          src="assets/cat_icon.png"
-          alt="PlayPets logo"
-        />
-        <span class="logo-text">PlayPets</span>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark" />
+        <div class="brand-text">
+          <span class="brand-name">PlayPets</span>
+          <span class="brand-tagline">Browser companions, made cozy.</span>
+        </div>
       </a>
 
-      <nav class="nav" id="nav">
+      <nav class="main-nav">
         <a href="index.html" class="nav-link nav-link-active">Home</a>
         <a href="getting-started.html" class="nav-link">Getting Started</a>
         <a href="privacy.html" class="nav-link">Privacy</a>
       </nav>
 
-      <a
-        class="btn btn-primary"
-        href="https://chromewebstore.google.com/detail/your-extension-id-here"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Add Extension
-      </a>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-cta">
+        <a
+          class="btn btn-primary"
+          href="https://chromewebstore.google.com" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Add Extension
+        </a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
+  <main class="page">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Bring a playful companion to every tab.</h1>
-          <p class="hero-subtitle">
-            PlayPets is a Chrome extension that adds a tiny interactive pet to your browser —
-            there to keep you company while you browse, study, or build the next big thing.
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Bring a cozy cat into your browser.</h1>
+          <p>
+            PlayPets adds an animated companion to your browser that plays,
+            naps, and reacts while you work or study. Warm visuals,
+            subtle motion, and a tiny bit of delight—right on your screen.
           </p>
+
           <div class="hero-actions">
             <a
               class="btn btn-primary"
-              href="https://chromewebstore.google.com/detail/your-extension-id-here"
+              href="https://chromewebstore.google.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Add Extension
+              Add to Chrome
             </a>
-            <a class="btn btn-ghost" href="getting-started.html">
+            <a href="getting-started.html" class="btn btn-ghost">
               View Getting Started
             </a>
           </div>
-          <p class="hero-note">
-            Works on most modern Chromium-based browsers. No account required.
-          </p>
+
+          <div class="hero-meta">
+            <span class="pill">Warm, cozy visuals</span>
+            <span class="pill">No account required</span>
+            <span class="pill">Works in the background</span>
+          </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span class="status-dot"></span>
-            <span>PlayPets Preview</span>
-          </div>
-          <div class="hero-card-body">
-            <div class="browser-bar">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="url-bar">your-tab-title.html</span>
+        <div class="hero-panel">
+          <div class="card hero-card">
+            <div class="hero-card-header">
+              <span class="dot dot-orange"></span>
+              <span class="dot dot-amber"></span>
+              <span class="dot dot-cream"></span>
             </div>
-            <div class="hero-preview">
-              <div class="hero-preview-main">
-                <div class="hero-placeholder-text"></div>
-                <div class="hero-placeholder-text"></div>
-                <div class="hero-placeholder-text short"></div>
-              </div>
-              <div class="hero-preview-pet">
-                <div class="pet-circle">
-                  <span class="pet-emoji">🐱</span>
+            <div class="hero-card-body">
+              <div class="hero-preview">
+                <img
+                  src="assets/cat_icon.png"
+                  alt="PlayPets cat preview"
+                  class="hero-cat-preview"
+                />
+                <div class="hero-preview-badge">
+                  <span class="badge-label">Live companion</span>
+                  <span class="badge-text">Sits at the edge of your screen</span>
                 </div>
-                <p class="pet-caption">Your pet appears here</p>
+                <div class="hero-preview-pill">
+                  <span class="pill-mini">Play mode</span>
+                  <span class="pill-mini">Study mode</span>
+                  <span class="pill-mini">Feed with pie</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+          <p class="hero-footnote">
+            Designed to feel like a soft, warm presence—not a distraction.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Features -->
+    <section class="section section-muted">
+      <div class="section-inner">
+        <h2>What PlayPets can do</h2>
+        <p class="section-lead">
+          The extension is built to be charming but unobtrusive, with subtle interactions
+          that match your focus level.
+        </p>
+
+        <div class="feature-grid">
+          <article class="card feature-card">
+            <h3>Playful when you want</h3>
+            <p>
+              Enable play mode to let your cat chase yarn, react to your mouse,
+              and add a bit of warmth while you browse.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <h3>Calm while you focus</h3>
+            <p>
+              Switch to “study” behavior so your companion stays relaxed and subtle
+              while you work or read.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <h3>Simple, transparent privacy</h3>
+            <p>
+              PlayPets runs locally in your browser. No logins, no tracking,
+              and a clear privacy policy you can read in one sitting.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Designed to be cute, calm, and privacy-friendly.</h2>
-          <p class="section-subtitle">
-            A tiny bit of personality for your browser — without tracking, pop-ups, or distractions.
+      <div class="section-inner cta-section">
+        <div class="cta-content">
+          <h2>Ready to adopt your browser companion?</h2>
+          <p>
+            Install the extension, pin it to your toolbar, and you’ll meet your cat
+            in just a few clicks.
           </p>
         </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Lightweight Companion</h3>
-            <p>
-              A small animated pet that lives in the corner of your browser window.
-              No loud notifications, just subtle, playful interactions.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Simple Controls</h3>
-            <p>
-              Toggle visibility, enable “study” mode, or just let your pet chill while you focus.
-              Designed to stay out of the way.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Privacy First</h3>
-            <p>
-              PlayPets doesn’t read your page content or send your browsing data anywhere.
-              See the full details in our <a href="privacy.html">Privacy Policy</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>How it works</h2>
-          <p class="section-subtitle">
-            Add the extension, pin it, and your pet is ready in a few clicks.
-          </p>
-        </div>
-
-        <ol class="steps">
-          <li class="step">
-            <span class="step-number">1</span>
-            <div class="step-body">
-              <h3>Add the extension</h3>
-              <p>
-                Click “Add Extension” to open the Chrome Web Store and install PlayPets
-                like any other extension.
-              </p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-number">2</span>
-            <div class="step-body">
-              <h3>Pin it in your toolbar</h3>
-              <p>
-                Use the puzzle icon in Chrome to pin PlayPets so you can toggle your pet
-                on any site.
-              </p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-number">3</span>
-            <div class="step-body">
-              <h3>Customize & enjoy</h3>
-              <p>
-                Choose your pet behavior, adjust size, and decide when your pet appears.
-                That’s it — no sign-up, no ads.
-              </p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="cta-box">
-          <div>
-            <h3>Ready to meet your browser pet?</h3>
-            <p class="cta-subtitle">
-              Add PlayPets to Chrome in seconds and bring a small spark of joy to your workflow.
-            </p>
-          </div>
+        <div class="cta-actions">
           <a
             class="btn btn-primary"
-            href="https://chromewebstore.google.com/detail/your-extension-id-here"
+            href="https://chromewebstore.google.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Add Extension
+            Add to Chrome
+          </a>
+          <a href="getting-started.html" class="btn btn-ghost">
+            Learn how it works
           </a>
         </div>
       </div>
@@ -198,19 +170,22 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-container">
-      <p class="footer-brand">PlayPets</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="getting-started.html">Getting Started</a>
-        <a href="privacy.html">Privacy</a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark logo-mark-sm" />
+        <span class="footer-text">PlayPets</span>
       </div>
-      <p class="footer-meta">
-        © <span id="year"></span> PlayPets. All rights reserved.
-      </p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="getting-started.html">Getting Started</a>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year"></span> PlayPets</span>
+      </div>
     </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
