@@ -177,6 +177,17 @@ body {
   margin-left: 12px;
 }
 
+/* Mobile nav toggle button */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
 /* Buttons */
 
 .btn {
@@ -284,8 +295,13 @@ body {
   padding: 18px 18px 20px;
 }
 
+/* Clear border around the example cat box */
 .hero-card {
   padding: 14px 14px 18px;
+  background: var(--color-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-card-header {
@@ -316,6 +332,7 @@ body {
   padding: 4px 8px 8px;
 }
 
+/* Hero preview container that houses the Rive canvas + mode buttons */
 .hero-preview {
   border-radius: 20px;
   padding: 16px;
@@ -327,51 +344,36 @@ body {
   position: relative;
 }
 
-.hero-cat-preview {
-  width: 90px;
-  height: 90px;
-  border-radius: 32%;
-  object-fit: contain;
-  padding: 8px;
-  background: radial-gradient(circle at 30% 20%, #ffe6bf 0, #fea026 60%, #dd7f15 100%);
-  box-shadow: 0 18px 35px rgba(221, 127, 21, 0.35);
-}
-
-.hero-preview-badge {
-  text-align: center;
-  padding: 8px 10px;
-  border-radius: 16px;
-  background: rgba(255, 244, 230, 0.95);
-  border: 1px solid rgba(255, 211, 167, 0.9);
-}
-
-.badge-label {
+/* Make the Rive preview big; JS will handle DPR for sharpness */
+.hero-rive-canvas {
+  width: 100%;
+  height: 280px;
   display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text);
+  margin: -6px auto 6px;
 }
 
-.badge-text {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--color-text-soft);
-  margin-top: 2px;
-}
-
-.hero-preview-pill {
+/* Mode buttons row under the Rive canvas */
+.hero-rive-modes {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
 }
 
-.pill-mini {
-  font-size: 0.75rem;
-  padding: 4px 8px;
+.mode-btn {
+  font-size: 0.78rem;
+  padding: 5px 10px;
   border-radius: 999px;
+  border: 1px solid rgba(254, 160, 38, 0.6);
   background: rgba(254, 160, 38, 0.08);
   color: var(--color-text-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.mode-btn:hover {
+  background: rgba(254, 160, 38, 0.18);
+  transform: translateY(-1px);
 }
 
 /* Hero footnote */
@@ -400,6 +402,18 @@ body {
   margin: 0;
   font-size: 0.92rem;
   color: var(--color-text-muted);
+}
+
+/* Center the "What PlayPets can do" section header and align cards nicely */
+.section.features-section .section-inner {
+  text-align: center;
+}
+
+.section.features-section .feature-grid {
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left; /* keep text in cards readable */
+  margin-top: 20px;
 }
 
 /* ===== CTA Section ===== */
@@ -460,6 +474,125 @@ body {
   color: var(--color-text-muted);
 }
 
+/* ===== Popup demo (extension preview) ===== */
+
+.popup-section-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.popup-section-footnote {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section.popup-section {
+  padding-top: 24px !important;
+  padding-bottom: 32px !important;
+}
+
+.popup-demo-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 12px 0 24px;
+}
+
+.popup-example {
+  flex: 0 0 320px;
+}
+
+.popup-image {
+  width: 280px;
+  max-width: 90%;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+.popup-instructions {
+  flex: 1 1 260px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Fake Chrome toolbar illustration */
+.toolbar-mock {
+  margin-bottom: 10px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+
+.toolbar-url {
+  flex: 1;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f4f2ed;
+  color: var(--color-text-soft);
+}
+
+.toolbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.toolbar-icon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(254, 160, 38, 0.08);
+  border: 1px solid rgba(254, 160, 38, 0.3);
+  font-size: 0.72rem;
+}
+
+/* Numbered pin steps */
+
+.pin-steps {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  counter-reset: pinsteps;
+}
+
+.pin-steps li {
+  counter-increment: pinsteps;
+  margin-bottom: 10px;
+  padding-left: 26px;
+  position: relative;
+}
+
+.pin-steps li::before {
+  content: counter(pinsteps);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(254, 160, 38, 0.14);
+  border: 1px solid rgba(254, 160, 38, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
 /* ===== Footer ===== */
 
 .site-footer {
@@ -511,6 +644,28 @@ body {
   color: var(--color-text-soft);
 }
 
+/* === Social Icons === */
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.social-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.social-icon img:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
 /* ===== Responsive ===== */
 
 @media (max-width: 768px) {
@@ -522,8 +677,29 @@ body {
     display: none; /* keep header compact on mobile */
   }
 
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* Mobile nav: hidden by default, opens when .nav-open class is added */
   .main-nav {
-    display: none; /* optional: hide main nav on very small screens */
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: rgba(255, 247, 240, 0.97);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px 12px;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 199, 134, 0.35);
+    display: none;
+    z-index: 40;
+  }
+
+  .main-nav.nav-open {
+    display: flex;
   }
 
   .hero-grid {
@@ -550,6 +726,16 @@ body {
 
   .site-footer {
     padding-inline: 18px;
+  }
+
+  .popup-demo-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popup-example,
+  .popup-instructions {
+    flex: 1 1 auto;
   }
 }
 

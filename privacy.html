@@ -10,40 +10,71 @@
   />
   <link rel="icon" type="image/png" href="assets/cat_icon.png" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Rive runtime -->
+  <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 </head>
 <body class="page-privacy">
   <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark" />
-        <div class="brand-text">
-          <span class="brand-name">PlayPets</span>
-          <span class="brand-tagline">Browser companions, made cozy.</span>
-        </div>
-      </a>
-
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="getting-started.html" class="nav-link">Getting Started</a>
-        <a href="privacy.html" class="nav-link nav-link-active">Privacy</a>
-      </nav>
-
-      <div class="header-cta">
-        <a
-          class="btn btn-primary"
-          href="https://chromewebstore.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Add Extension
-        </a>
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark" />
+      <div class="brand-text">
+        <span class="brand-name">PlayPets</span>
+        <span class="brand-tagline">Browser companions, made cozy.</span>
       </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="privacy.html" class="nav-link">Privacy</a>
+    </nav>
+
+  <div class="social-links">
+    <a
+      href="https://instagram.com"
+      target="_blank"
+      rel="noopener"
+      class="social-icon"
+      aria-label="Instagram"
+    >
+      <img src="assets/instagram.png" alt="Instagram icon" />
+    </a>
+
+    <a
+      href="https://youtube.com"
+      target="_blank"
+      rel="noopener"
+      class="social-icon"
+      aria-label="YouTube"
+    >
+      <img src="assets/youtube.png" alt="YouTube icon" />
+    </a>
+  </div>
+
+    <div class="header-cta">
+      <a
+        class="btn btn-primary"
+        href="https://chromewebstore.google.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Add Extension
+      </a>
     </div>
-  </header>
+
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
+</header>
+
 
   <main class="page">
     <section class="section">
       <div class="section-inner narrow">
+
         <h1>Privacy Policy</h1>
         <p class="section-lead">
           Your privacy matters. This policy explains exactly what PlayPets does, and
@@ -159,5 +190,7 @@
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
