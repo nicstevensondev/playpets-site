@@ -24,33 +24,34 @@
       </div>
     </a>
 
-    <nav class="main-nav">
+    <!-- 👇 Added id="nav" here -->
+    <nav class="main-nav" id="nav">
       <a href="index.html" class="nav-link">Home</a>
       <a href="getting-started.html" class="nav-link">Getting Started</a>
       <a href="privacy.html" class="nav-link">Privacy</a>
     </nav>
 
-  <div class="social-links">
-    <a
-      href="https://instagram.com/nickstevnson"
-      target="_blank"
-      rel="noopener"
-      class="social-icon"
-      aria-label="Instagram"
-    >
-      <img src="assets/instagram.png" alt="Instagram icon" />
-    </a>
+    <div class="social-links">
+      <a
+        href="https://instagram.com/nickstevnson"
+        target="_blank"
+        rel="noopener"
+        class="social-icon"
+        aria-label="Instagram"
+      >
+        <img src="assets/instagram.png" alt="Instagram icon" />
+      </a>
 
-    <a
-      href="https://youtube.com/@nickstevnson"
-      target="_blank"
-      rel="noopener"
-      class="social-icon"
-      aria-label="YouTube"
-    >
-      <img src="assets/youtube.png" alt="YouTube icon" />
-    </a>
-  </div>
+      <a
+        href="https://youtube.com/@nickstevnson"
+        target="_blank"
+        rel="noopener"
+        class="social-icon"
+        aria-label="YouTube"
+      >
+        <img src="assets/youtube.png" alt="YouTube icon" />
+      </a>
+    </div>
 
     <div class="header-cta">
       <a
@@ -63,7 +64,14 @@
       </a>
     </div>
 
-    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+    <!-- 👇 nav-toggle already correct; added aria-expanded + aria-controls -->
+    <button
+      id="nav-toggle"
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="nav"
+    >
       ☰
     </button>
   </div>
@@ -136,7 +144,7 @@
       </div>
     </section>
 
-<section class="section section-muted features-section">
+    <section class="section section-muted features-section">
       <div class="section-inner">
         <h2>What PlayPets Can Do</h2>
         <p class="section-lead">
@@ -172,7 +180,7 @@
       </div>
     </section>
 
-<section class="section popup-section">
+    <section class="section popup-section">
       <div class="section-inner">
         <div class="popup-section-header">
           <h2>Cat Settings and Control Panel</h2>

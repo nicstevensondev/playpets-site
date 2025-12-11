@@ -24,12 +24,11 @@
       </div>
     </a>
 
-    <nav class="main-nav">
+    <nav class="main-nav" id="nav">
       <a href="index.html" class="nav-link">Home</a>
       <a href="getting-started.html" class="nav-link">Getting Started</a>
       <a href="privacy.html" class="nav-link">Privacy</a>
     </nav>
-
   <div class="social-links">
     <a
       href="https://instagram.com/nickstevnson"
@@ -63,7 +62,14 @@
       </a>
     </div>
 
-    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+    <!-- 👇 nav-toggle already correct; added aria-expanded + aria-controls -->
+    <button
+      id="nav-toggle"
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="nav"
+    >
       ☰
     </button>
   </div>
