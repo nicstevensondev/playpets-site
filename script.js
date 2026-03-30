@@ -4,11 +4,12 @@ const nav = document.getElementById("nav");
 
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
-    nav.classList.toggle("nav-open");
+    const isOpen = nav.classList.toggle("nav-open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
 }
 
-// Footer year (safe duplicate with inline script)
+// Footer year
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
@@ -16,20 +17,22 @@ if (yearSpan) {
 
 /* ====================================
    RIVE INTEGRATION
-   Uses your existing cat.riv state machine: "Cat"
+   Based on extension content.js:
+   - state machine: "Pet"
+   - shared inputs for cat and dog
 ==================================== */
 
 function hasRive() {
-  return typeof window !== "undefined" &&
-         window.rive &&
-         typeof window.rive.Rive === "function";
+  return (
+    typeof window !== "undefined" &&
+    window.rive &&
+    typeof window.rive.Rive === "function"
+  );
 }
 
-/**
- * Make canvas sharp on high-DPI screens
- */
 function resizeCanvasForDPR(canvas) {
   if (!canvas) return;
+
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();
   if (!rect.width || !rect.height) return;
@@ -43,199 +46,145 @@ function resizeCanvasForDPR(canvas) {
   }
 }
 
-/**
- * Helper to wire a Rive instance to the hero canvas and simple mode names
- * Modes:
- *  - Idle
- *  - Play
- *  - Study
- *  - Music
- *  - Sleep
- *  - Walk
- */
-function initHeroRive() {
-  if (!hasRive()) return;
+function bindModeButtons(selector, setMode) {
+  const buttons = document.querySelectorAll(selector);
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mode = btn.getAttribute("data-rive-mode");
+      setMode(mode);
+    });
+  });
+}
 
-  const canvas = document.getElementById("heroRive");
-  if (!canvas) return;
-
-  // Initial DPR sizing before Rive creates its surface
-  resizeCanvasForDPR(canvas);
-
-  const riveInstance = new rive.Rive({
-    src: "rive/cat.riv",
-    canvas,
-    stateMachines: ["Cat"],
-    autoplay: true,
-    fit: rive.Fit.Contain,
-    alignment: rive.Alignment.Center,
-    onLoad: () => {
-      // Re-size once more now that Rive is ready
-      resizeCanvasForDPR(canvas);
-      if (typeof riveInstance.resizeDrawingSurfaceToCanvas === "function") {
-        riveInstance.resizeDrawingSurfaceToCanvas();
-      }
-
-      const inputs = riveInstance.stateMachineInputs("Cat") || [];
-      const inputMap = {};
-      inputs.forEach((i) => { inputMap[i.name] = i; });
-
-      const setBool = (name, value) => {
-        const inp = inputMap[name];
-        if (inp && "value" in inp && typeof inp.value === "boolean") {
-          inp.value = !!value;
-        }
-      };
-
-      const clearBools = () => {
-        for (const key in inputMap) {
-          const inp = inputMap[key];
-          if (inp && "value" in inp && typeof inp.value === "boolean") {
-            inp.value = false;
-          }
-        }
-      };
-
-      // Map our high-level modes to your Rive inputs
-      const setMode = (mode) => {
-        clearBools();
-
-        switch (mode) {
-          case "Play":
-            // Active play — your extension requires "play" + "playingRight"
-            setBool("active", true);
-            setBool("play", true);
-            setBool("playingRight", true);
-            break;
-
-          case "Study":
-            // Idle study behavior
-            setBool("studyRight", true);
-            break;
-
-          case "Music":
-            // Default mode — listening to music
-            setBool("musicRight", true);
-            break;
-
-          case "Sleep":
-            setBool("sleeping", true);
-            break;
-
-          case "Walk":
-            // Activate and walk right
-            setBool("active", true);
-            setBool("rightWalk", true);
-            break;
-        }
-      };
-
-
-      // Wire buttons
-      const buttons = document.querySelectorAll("[data-rive-mode]");
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const mode = btn.getAttribute("data-rive-mode");
-          setMode(mode);
-        });
-      });
-
-      // Default: Idle
-      setMode("Music")
-
-      // Keep it sharp on resize
-      window.addEventListener("resize", () => {
-        resizeCanvasForDPR(canvas);
-        if (typeof riveInstance.resizeDrawingSurfaceToCanvas === "function") {
-          riveInstance.resizeDrawingSurfaceToCanvas();
-        }
-      });
+function attachResizeHandler(canvas, riveInstance) {
+  window.addEventListener("resize", () => {
+    resizeCanvasForDPR(canvas);
+    if (typeof riveInstance.resizeDrawingSurfaceToCanvas === "function") {
+      riveInstance.resizeDrawingSurfaceToCanvas();
     }
   });
 }
 
-/**
- * Small decorative instances (Getting Started / Privacy)
- * initialMode: "Idle" | "Play" | "Study" | "Music" | "Sleep"
- */
-function initSmallRive(canvasId, initialMode) {
+function createInputHelpers(riveInstance, stateMachineName) {
+  const inputs = riveInstance.stateMachineInputs(stateMachineName) || [];
+  const inputMap = {};
+  inputs.forEach((i) => {
+    inputMap[i.name] = i;
+  });
+
+  const setBool = (name, value) => {
+    const inp = inputMap[name];
+    if (inp && "value" in inp && typeof inp.value === "boolean") {
+      inp.value = !!value;
+    }
+  };
+
+  const clearBools = () => {
+    for (const key in inputMap) {
+      const inp = inputMap[key];
+      if (inp && "value" in inp && typeof inp.value === "boolean") {
+        inp.value = false;
+      }
+    }
+  };
+
+  return { inputMap, setBool, clearBools };
+}
+
+/* ====================================
+   Shared pet mode mapping
+   Mirrors content.js input names
+==================================== */
+
+function applyPetMode(mode, helpers) {
+  const { setBool, clearBools } = helpers;
+
+  clearBools();
+
+  switch (mode) {
+    case "Idle":
+      // true idle/default state
+      break;
+
+    case "Play":
+      setBool("active", true);
+      setBool("playingRight", true);
+      break;
+
+    case "Study":
+      setBool("studyRight", true);
+      break;
+
+    case "Music":
+      setBool("musicRight", true);
+      break;
+
+    case "Sleep":
+      setBool("sleeping", true);
+      break;
+
+    case "Walk":
+      setBool("active", true);
+      setBool("rightWalk", true);
+      break;
+
+    default:
+      break;
+  }
+}
+
+function initPetHero({
+  canvasId,
+  src,
+  buttonTarget,
+  defaultMode,
+}) {
   if (!hasRive()) return;
 
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
-  // Initial DPR sizing
   resizeCanvasForDPR(canvas);
 
-  const r = new rive.Rive({
-    src: "rive/cat.riv",
+  const riveInstance = new rive.Rive({
+    src,
     canvas,
-    stateMachines: ["Cat"],
+    stateMachines: ["Pet"],
     autoplay: true,
     fit: rive.Fit.Contain,
     alignment: rive.Alignment.Center,
     onLoad: () => {
       resizeCanvasForDPR(canvas);
-      if (typeof r.resizeDrawingSurfaceToCanvas === "function") {
-        r.resizeDrawingSurfaceToCanvas();
+
+      if (typeof riveInstance.resizeDrawingSurfaceToCanvas === "function") {
+        riveInstance.resizeDrawingSurfaceToCanvas();
       }
 
-      const inputs = r.stateMachineInputs("Cat") || [];
-      const inputMap = {};
-      inputs.forEach((i) => { inputMap[i.name] = i; });
+      const helpers = createInputHelpers(riveInstance, "Pet");
 
-      const setBool = (name, value) => {
-        const inp = inputMap[name];
-        if (inp && "value" in inp && typeof inp.value === "boolean") {
-          inp.value = !!value;
-        }
+      const setMode = (mode) => {
+        applyPetMode(mode, helpers);
       };
 
-      const clearBools = () => {
-        for (const key in inputMap) {
-          const inp = inputMap[key];
-          if (inp && "value" in inp && typeof inp.value === "boolean") {
-            inp.value = false;
-          }
-        }
-      };
-
-      clearBools();
-
-      switch (initialMode) {
-        case "Idle":
-          break;
-        case "Play":
-          setBool("active", true);
-          setBool("play", true);          // same as hero
-          setBool("playingRight", true);
-          break;
-        case "Study":
-          setBool("studyRight", true);
-          break;
-        case "Music":
-          setBool("musicRight", true);
-          break;
-        case "Sleep":
-          setBool("sleeping", true);
-          break;
-        default:
-          break;
-      }
-
-      window.addEventListener("resize", () => {
-        resizeCanvasForDPR(canvas);
-        if (typeof r.resizeDrawingSurfaceToCanvas === "function") {
-          r.resizeDrawingSurfaceToCanvas();
-        }
-      });
+      bindModeButtons(`[data-rive-target="${buttonTarget}"]`, setMode);
+      setMode(defaultMode);
+      attachResizeHandler(canvas, riveInstance);
     }
   });
 }
 
-// Initialize once DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  initHeroRive();
-  initSmallRive("gettingStartedRive", "Sleep");
-  initSmallRive("privacyRive", "Study");
+  initPetHero({
+    canvasId: "heroRive",
+    src: "rive/cat.riv",
+    buttonTarget: "cat",
+    defaultMode: "Music",
+  });
+
+  initPetHero({
+    canvasId: "dogHeroRive",
+    src: "rive/dog.riv",
+    buttonTarget: "dog",
+    defaultMode: "Idle",
+  });
 });

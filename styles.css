@@ -4,7 +4,7 @@
   --color-card: #ffffff;
   --color-border-subtle: rgba(47, 21, 1, 0.08);
 
-  --color-accent: #fea026;      /* warm orange (cat-like) */
+  --color-accent: #fea026;
   --color-accent-soft: #ffe1b8;
   --color-accent-dark: #dd7f15;
 
@@ -90,7 +90,7 @@ body {
 }
 
 .header-inner {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   height: var(--header-height);
   padding: 0 24px;
@@ -98,8 +98,6 @@ body {
   align-items: center;
   gap: 24px;
 }
-
-/* Brand */
 
 .brand {
   display: flex;
@@ -174,10 +172,8 @@ body {
 /* CTA in header */
 
 .header-cta {
-  margin-left: 12px;
+  margin-left: 4px;
 }
-
-/* Mobile nav toggle button */
 
 .nav-toggle {
   display: none;
@@ -233,8 +229,12 @@ body {
   padding: 64px 24px 40px;
 }
 
+.hero-secondary {
+  padding-top: 8px;
+}
+
 .hero-grid {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
@@ -242,14 +242,19 @@ body {
   align-items: center;
 }
 
-.hero-copy h1 {
+.hero-grid-reverse {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+}
+
+.hero-copy h1,
+.hero-copy h2 {
   font-size: clamp(2.1rem, 3vw + 1.4rem, 2.7rem);
   line-height: 1.1;
   margin: 0 0 14px;
 }
 
 .hero-copy p {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   color: var(--color-text-muted);
   font-size: 0.98rem;
   line-height: 1.7;
@@ -279,8 +284,6 @@ body {
   border: 1px solid rgba(255, 205, 152, 0.8);
 }
 
-/* Hero right panel */
-
 .hero-panel {
   display: flex;
   flex-direction: column;
@@ -295,7 +298,6 @@ body {
   padding: 18px 18px 20px;
 }
 
-/* Clear border around the example cat box */
 .hero-card {
   padding: 14px 14px 18px;
   background: var(--color-card);
@@ -332,7 +334,6 @@ body {
   padding: 4px 8px 8px;
 }
 
-/* Hero preview container that houses the Rive canvas + mode buttons */
 .hero-preview {
   border-radius: 20px;
   padding: 16px;
@@ -344,7 +345,6 @@ body {
   position: relative;
 }
 
-/* Make the Rive preview big; JS will handle DPR for sharpness */
 .hero-rive-canvas {
   width: 100%;
   height: 280px;
@@ -352,7 +352,6 @@ body {
   margin: -6px auto 6px;
 }
 
-/* Mode buttons row under the Rive canvas */
 .hero-rive-modes {
   display: flex;
   flex-wrap: wrap;
@@ -375,8 +374,6 @@ body {
   background: rgba(254, 160, 38, 0.18);
   transform: translateY(-1px);
 }
-
-/* Hero footnote */
 
 .hero-footnote {
   font-size: 0.82rem;
@@ -404,7 +401,6 @@ body {
   color: var(--color-text-muted);
 }
 
-/* Center the "What PlayPets can do" section header and align cards nicely */
 .section.features-section .section-inner {
   text-align: center;
 }
@@ -412,7 +408,7 @@ body {
 .section.features-section .feature-grid {
   justify-content: center;
   align-items: flex-start;
-  text-align: left; /* keep text in cards readable */
+  text-align: left;
   margin-top: 20px;
 }
 
@@ -446,35 +442,7 @@ body {
   gap: 10px;
 }
 
-/* ===== Step list (Getting Started) ===== */
-
-.step-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  counter-reset: steps;
-}
-
-.step-item {
-  border-radius: var(--radius-lg);
-  padding: 16px 18px;
-  background: rgba(255, 244, 230, 0.7);
-  border: 1px solid rgba(255, 206, 157, 0.9);
-  margin-bottom: 12px;
-}
-
-.step-item h2 {
-  margin: 0 0 6px;
-  font-size: 1rem;
-}
-
-.step-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-/* ===== Popup demo (extension preview) ===== */
+/* ===== Popup demo ===== */
 
 .popup-section-header {
   text-align: center;
@@ -520,79 +488,6 @@ body {
   color: var(--color-text-muted);
 }
 
-/* Fake Chrome toolbar illustration */
-.toolbar-mock {
-  margin-bottom: 10px;
-  padding: 6px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-}
-
-.toolbar-url {
-  flex: 1;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #f4f2ed;
-  color: var(--color-text-soft);
-}
-
-.toolbar-icons {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.9rem;
-}
-
-.toolbar-icon-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 7px;
-  border-radius: 999px;
-  background: rgba(254, 160, 38, 0.08);
-  border: 1px solid rgba(254, 160, 38, 0.3);
-  font-size: 0.72rem;
-}
-
-/* Numbered pin steps */
-
-.pin-steps {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  counter-reset: pinsteps;
-}
-
-.pin-steps li {
-  counter-increment: pinsteps;
-  margin-bottom: 10px;
-  padding-left: 26px;
-  position: relative;
-}
-
-.pin-steps li::before {
-  content: counter(pinsteps);
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: rgba(254, 160, 38, 0.14);
-  border: 1px solid rgba(254, 160, 38, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
 /* ===== Footer ===== */
 
 .site-footer {
@@ -603,7 +498,7 @@ body {
 }
 
 .footer-inner {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -648,25 +543,44 @@ body {
 
 .social-links {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  margin-right: 16px;
+  margin-right: 12px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(254, 160, 38, 0.08);
+  border: 1px solid rgba(254, 160, 38, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-1px);
+  background: rgba(254, 160, 38, 0.16);
+  border-color: rgba(254, 160, 38, 0.28);
 }
 
 .social-icon img {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
-  opacity: 0.85;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.social-icon img:hover {
-  opacity: 1;
-  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 /* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .social-links {
+    display: none;
+  }
+}
 
 @media (max-width: 768px) {
   .header-inner {
@@ -674,7 +588,7 @@ body {
   }
 
   .brand-text {
-    display: none; /* keep header compact on mobile */
+    display: none;
   }
 
   .nav-toggle {
@@ -682,7 +596,6 @@ body {
     margin-left: auto;
   }
 
-  /* Mobile nav: hidden by default, opens when .nav-open class is added */
   .main-nav {
     position: absolute;
     top: var(--header-height);
@@ -702,7 +615,8 @@ body {
     display: flex;
   }
 
-  .hero-grid {
+  .hero-grid,
+  .hero-grid-reverse {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }

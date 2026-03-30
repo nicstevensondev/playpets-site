@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PlayPets – Your Browser Pet</title>
+  <title>PlayPets – Your Browser Pets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="PlayPets brings a cozy animated companion to your browser — a playful cat that keeps you company while you work."
+    content="PlayPets brings cozy animated companions to your browser — now with both a playful cat and a loyal dog to keep you company."
   />
   <link rel="icon" type="image/png" href="assets/cat_icon.png" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Rive runtime from CDN -->
   <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 </head>
 <body class="page-home">
@@ -24,16 +23,35 @@
       </div>
     </a>
 
-    <!-- 👇 Added id="nav" here -->
     <nav class="main-nav" id="nav">
-      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html" class="nav-link nav-link-active">Home</a>
       <a href="getting-started.html" class="nav-link">Getting Started</a>
       <a href="privacy.html" class="nav-link">Privacy</a>
     </nav>
 
     <div class="social-links">
       <a
-        href="https://instagram.com/nickstevnson"
+        href="https://www.facebook.com/profile.php?id=61576448874476"
+        target="_blank"
+        rel="noopener"
+        class="social-icon"
+        aria-label="Facebook"
+      >
+        <img src="assets/facebook.png" alt="Facebook icon" />
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@nickstevnson"
+        target="_blank"
+        rel="noopener"
+        class="social-icon"
+        aria-label="TikTok"
+      >
+        <img src="assets/tiktok.png" alt="TikTok icon" />
+      </a>
+
+      <a
+        href="https://www.instagram.com/nick.playpets"
         target="_blank"
         rel="noopener"
         class="social-icon"
@@ -64,7 +82,6 @@
       </a>
     </div>
 
-    <!-- 👇 nav-toggle already correct; added aria-expanded + aria-controls -->
     <button
       id="nav-toggle"
       class="nav-toggle"
@@ -77,139 +94,19 @@
   </div>
 </header>
 
-
-  <main class="page">
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <h1>Bring a cute cat into your browser.</h1>
-          <p>
-            PlayPets adds an animated cat to your browser that plays,
-            naps, and reacts while you work or study. Play, feed and vibe with your cat right on your screen.
-          </p>
-
-          <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="https://chromewebstore.google.com/detail/play-pets-cute-and-playfu/nnhkeepdogafbhgccmohcjbgpkkbjcag?utm_source=item-share-cb"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Add to Chrome
-            </a>
-            <a href="getting-started.html" class="btn btn-ghost">
-              View Getting Started
-            </a>
-          </div>
-
-          <div class="hero-meta">
-            <span class="pill">Cute and Playful</span>
-            <span class="pill">Very Low Memory Use</span>
-            <span class="pill">No Data Stored</span>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <div class="card hero-card">
-            <div class="hero-card-header">
-              <span class="dot dot-orange"></span>
-              <span class="dot dot-amber"></span>
-              <span class="dot dot-cream"></span>
-            </div>
-            <div class="hero-card-body">
-              <div class="hero-preview">
-                <!-- Big Rive hero canvas -->
-                <canvas
-                  id="heroRive"
-                  class="hero-rive-canvas"
-                  aria-label="PlayPets cat animation preview"
-                ></canvas>
-
-                <!-- Mode buttons controlling the Rive state -->
-                <div class="hero-rive-modes">
-                  <button type="button" class="mode-btn" data-rive-mode="Play">Play</button>
-                  <button type="button" class="mode-btn" data-rive-mode="Study">Study</button>
-                  <button type="button" class="mode-btn" data-rive-mode="Music">Music</button>
-                  <button type="button" class="mode-btn" data-rive-mode="Sleep">Sleep</button>
-                  <button type="button" class="mode-btn" data-rive-mode="Walk">Walk</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p class="hero-footnote">
-            Play with these example actions and more with the official extension
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted features-section">
-      <div class="section-inner">
-        <h2>What PlayPets Can Do</h2>
-        <p class="section-lead">
-          The extension is built to be cute but subtle, with playful interactions
-          that match your focus level.
+<main class="page">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Bring a cute cat into your browser.</h1>
+        <p>
+          PlayPets adds an animated cat to your browser that plays,
+          naps, and reacts while you work or study. Now your browser can be home
+          to both a cat and a dog, with each pet bringing its own cozy personality
+          to your screen.
         </p>
 
-        <div class="feature-grid">
-          <article class="card feature-card">
-            <h3>Playful when you want</h3>
-            <p>
-              Enable play mode to let your cat chase yarn, react to your mouse,
-              and add a bit of warmth while you browse.
-            </p>
-          </article>
-
-          <article class="card feature-card">
-            <h3>Calm while you focus</h3>
-            <p>
-              Switch to study behavior so your companion stays relaxed and subtle
-              while you work or read.
-            </p>
-          </article>
-
-          <article class="card feature-card">
-            <h3>Simple, transparent privacy</h3>
-            <p>
-              PlayPets runs locally in your browser. No logins, no tracking,
-              and a clear privacy policy.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section popup-section">
-      <div class="section-inner">
-        <div class="popup-section-header">
-          <h2>Cat Settings and Control Panel</h2>
-          <p class="section-lead">
-            Pin the extension and click the PlayPets icon to access your control panel. Here, you can change the name, visibility, and size of the cat.
-          </p>
-        </div>
-
-        <div class="popup-demo-wrapper">
-          <img
-            src="assets/popup.png"
-            alt="PlayPets popup preview"
-            class="popup-image"
-          />
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner cta-section">
-        <div class="cta-content">
-          <h2>Ready to adopt your browser pet?</h2>
-          <p>
-            Install the extension, pin it to your toolbar, and you’ll meet your cat
-            in just a few clicks.
-          </p>
-        </div>
-        <div class="cta-actions">
+        <div class="hero-actions">
           <a
             class="btn btn-primary"
             href="https://chromewebstore.google.com/detail/play-pets-cute-and-playfu/nnhkeepdogafbhgccmohcjbgpkkbjcag?utm_source=item-share-cb"
@@ -219,33 +116,205 @@
             Add to Chrome
           </a>
           <a href="getting-started.html" class="btn btn-ghost">
-            Learn how it works
+            View Getting Started
           </a>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark logo-mark-sm" />
-        <span class="footer-text">PlayPets</span>
+        <div class="hero-meta">
+          <span class="pill">Animated Cat + Dog</span>
+          <span class="pill">Very Low Memory Use</span>
+          <span class="pill">No Data Stored</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="getting-started.html">Getting Started</a>
-      </div>
-      <div class="footer-meta">
-        <span>© <span id="year"></span> PlayPets</span>
+
+      <div class="hero-panel">
+        <div class="card hero-card">
+          <div class="hero-card-header">
+            <span class="dot dot-orange"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-cream"></span>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-preview">
+              <canvas
+                id="heroRive"
+                class="hero-rive-canvas"
+                aria-label="PlayPets cat animation preview"
+              ></canvas>
+
+              <div class="hero-rive-modes">
+                <button type="button" class="mode-btn" data-rive-target="cat" data-rive-mode="Play">Play</button>
+                <button type="button" class="mode-btn" data-rive-target="cat" data-rive-mode="Study">Study</button>
+                <button type="button" class="mode-btn" data-rive-target="cat" data-rive-mode="Music">Music</button>
+                <button type="button" class="mode-btn" data-rive-target="cat" data-rive-mode="Sleep">Sleep</button>
+                <button type="button" class="mode-btn" data-rive-target="cat" data-rive-mode="Walk">Walk</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-footnote">
+          Preview the cat companion and explore more interactions in the extension
+        </p>
       </div>
     </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </footer>
+  </section>
 
-  <!-- Site JS (nav + Rive) -->
-  <script src="script.js"></script>
+  <section class="hero hero-secondary">
+    <div class="hero-grid hero-grid-reverse">
+      <div class="hero-panel">
+        <div class="card hero-card">
+          <div class="hero-card-header">
+            <span class="dot dot-orange"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-cream"></span>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-preview">
+              <canvas
+                id="dogHeroRive"
+                class="hero-rive-canvas"
+                aria-label="PlayPets dog animation preview"
+              ></canvas>
+
+              <div class="hero-rive-modes">
+                <button type="button" class="mode-btn" data-rive-target="dog" data-rive-mode="Idle">Idle</button>
+                <button type="button" class="mode-btn" data-rive-target="dog" data-rive-mode="Study">Study</button>
+                <button type="button" class="mode-btn" data-rive-target="dog" data-rive-mode="Music">Music</button>
+                <button type="button" class="mode-btn" data-rive-target="dog" data-rive-mode="Sleep">Sleep</button>
+                <button type="button" class="mode-btn" data-rive-target="dog" data-rive-mode="Walk">Walk</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-footnote">
+          Meet the new dog companion, now part of the PlayPets experience
+        </p>
+      </div>
+
+      <div class="hero-copy">
+        <h2>And now, a loyal dog too.</h2>
+        <p>
+          PlayPets now includes a dog companion alongside your cat, giving you
+          two browser pets to bring a little more life, warmth, and personality
+          to your day.
+        </p>
+        <p>
+          Whether you want a playful cat, a cozy dog, or both on your screen,
+          PlayPets makes your browser feel more alive without getting in the way.
+        </p>
+
+        <div class="hero-meta">
+          <span class="pill">Separate Pet Heroes</span>
+          <span class="pill">Cozy Companion Energy</span>
+          <span class="pill">Built for Everyday Browsing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted features-section">
+    <div class="section-inner">
+      <h2>What PlayPets Can Do</h2>
+      <p class="section-lead">
+        The extension is built to be cute but subtle, with playful interactions
+        from both your cat and dog that match your focus level.
+      </p>
+
+      <div class="feature-grid">
+        <article class="card feature-card">
+          <h3>Playful when you want</h3>
+          <p>
+            Let your pets add personality to your browser with playful,
+            animated behavior that makes your workspace feel more fun.
+          </p>
+        </article>
+
+        <article class="card feature-card">
+          <h3>Calm while you focus</h3>
+          <p>
+            Keep your companions subtle and cozy while you work, study, or read,
+            so they add charm without becoming distracting.
+          </p>
+        </article>
+
+        <article class="card feature-card">
+          <h3>Simple, transparent privacy</h3>
+          <p>
+            PlayPets runs locally in your browser. No logins, no tracking,
+            and a clear privacy policy.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section popup-section">
+    <div class="section-inner">
+      <div class="popup-section-header">
+        <h2>Pet Settings and Control Panel</h2>
+        <p class="section-lead">
+          Pin the extension and click the PlayPets icon to access your control panel.
+          Here, you can change the name, visibility, and size of your pets.
+        </p>
+      </div>
+
+      <div class="popup-demo-wrapper">
+        <img
+          src="assets/popup.png"
+          alt="PlayPets popup preview"
+          class="popup-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner cta-section">
+      <div class="cta-content">
+        <h2>Ready to adopt your browser pets?</h2>
+        <p>
+          Install the extension, pin it to your toolbar, and meet your cat and dog
+          in just a few clicks.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a
+          class="btn btn-primary"
+          href="https://chromewebstore.google.com/detail/play-pets-cute-and-playfu/nnhkeepdogafbhgccmohcjbgpkkbjcag?utm_source=item-share-cb"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Add to Chrome
+        </a>
+        <a href="getting-started.html" class="btn btn-ghost">
+          Learn how it works
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/cat_icon.png" alt="PlayPets logo" class="logo-mark logo-mark-sm" />
+      <span class="footer-text">PlayPets</span>
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="getting-started.html">Getting Started</a>
+    </div>
+    <div class="footer-meta">
+      <span>© <span id="year"></span> PlayPets</span>
+    </div>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
